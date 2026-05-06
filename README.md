@@ -31,3 +31,15 @@ uvicorn app.main:app --reload
 
 - `GET /health`
 - `GET /api/v1/hello`
+- `GET /api/v1/calculate?left=10&right=2`
+
+## API Authentication
+
+`/api/v1` endpoints require a JWT bearer token.
+
+```bash
+curl "http://127.0.0.1:8000/api/v1/calculate?left=10&right=2" \
+  -H "Authorization: Bearer <jwt-token>"
+```
+
+Set `JWT_SECRET_KEY` in the environment to validate tokens with a custom secret.
